@@ -53,7 +53,7 @@ public class FastsignApplication {
 		}
 		@Override
 		public void run() {
-			logger.info("Working on batch {}", batchId);
+			logger.info("Signing batch of records - batchId:{}", batchId);
 			List<DataRecord> records = recordService.readBatch(batchId);
 			signingService.signRecords(records);
 			recordService.writeBatch(records);

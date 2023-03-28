@@ -57,11 +57,13 @@ public class DBInitialize {
             if(dataRepository.count() < 10000) {
                 dataRepository.deleteAll();
 
+                log.info("Creating 10_000 data records");
                 DataRecord dataRecord;
                 for(int i=1;i<=10000;i++){
                     dataRecord = new DataRecord((long)i, String.format("this is data of line %s", i));
                     dataRepository.save(dataRecord);
                 }
+                log.info("Finished creating 10_000 data records");
             }
             connection.close();
         }

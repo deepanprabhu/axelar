@@ -46,7 +46,7 @@ public class SigningService {
         // LRU Implementation
         synchronized (_lock) {
             Long keyId = keyQueue.pollFirst();
-            logger.info("Moving key {} to end",keyId);
+            logger.info("Moving recently used key {} to end of queue",keyId);
             keyQueue.addLast(keyId);
             return keyId;
         }
